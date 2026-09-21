@@ -95,7 +95,7 @@ export class MagicalAudio {
       }
     }
 
-    const nextDelay = (item ? item.dur : 0.8) * 850;
+    const nextDelay = (item ? item.dur : 0.8) * 750;
     this.melodyIndex = (this.melodyIndex + 1) % this.mysteryMelody.length;
     this.melodyTimer = setTimeout(() => {
       this.playProceduralMelody();
