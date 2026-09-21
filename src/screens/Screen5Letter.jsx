@@ -7,7 +7,7 @@ export default function Screen5Letter({
   onNextScreen,
   onWandSpark
 }) {
-  const friendName = config.friendName || 'Hermione';
+  const friendName = config.friendName || 'Shweta';
   const yourName = config.yourName || 'Your Best Friend';
   const letterConfig = config.letter || {};
   const paragraphs = letterConfig.paragraphs || [];

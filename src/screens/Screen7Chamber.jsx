@@ -6,7 +6,7 @@ export default function Screen7Chamber({
   onUnlockChamber,
   onNextScreen
 }) {
-  const friendName = config.friendName || 'Hermione';
+  const friendName = config.friendName || 'Shweta';
   const chamberConfig = config.chamber || {};
 
   const [isKeyholeActive, setIsKeyholeActive] = useState(false);

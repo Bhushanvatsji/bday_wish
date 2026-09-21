@@ -8,7 +8,7 @@
 
 export const DEFAULT_CONFIG = {
   // 1. PERSONAL DETAILS
-  friendName: "Hermione",
+  friendName: "Shweta",
   yourName: "Your Best Friend",
   birthdayDate: "September 21",
 

@@ -19,7 +19,7 @@ export default function ConfigDrawer({
   const handleSave = (e) => {
     e.preventDefault();
     onSaveConfig({
-      friendName: friendName.trim() || 'Hermione',
+      friendName: friendName.trim() || 'Shweta',
       yourName: yourName.trim() || 'Your Best Friend',
       customMusicUrl: customMusic.trim()
     });

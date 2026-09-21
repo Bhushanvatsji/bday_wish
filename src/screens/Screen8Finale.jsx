@@ -6,7 +6,7 @@ export default function Screen8Finale({
   onReplay,
   onReopenLetter
 }) {
-  const friendName = config.friendName || 'Hermione';
+  const friendName = config.friendName || 'Shweta';
   const yourName = config.yourName || 'Your Best Friend';
   const finale = config.finale || {};
   const poemLines = finale.poem || [

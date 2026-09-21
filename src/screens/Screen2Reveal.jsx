@@ -7,7 +7,7 @@ export default function Screen2Reveal({
   onBlowCandle,
   onBlowAllCandles
 }) {
-  const friendName = config.friendName || 'Hermione';
+  const friendName = config.friendName || 'Shweta';
   const reveal = config.reveal || {};
 
   const [extinguishedFlames, setExtinguishedFlames] = useState({

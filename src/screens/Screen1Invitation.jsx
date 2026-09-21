@@ -5,7 +5,7 @@ export default function Screen1Invitation({
   config,
   onOpenLetter
 }) {
-  const friendName = config.friendName || 'Hermione';
+  const friendName = config.friendName || 'Shweta';
   const letter = config.invitationLetter || {};
 
   return (
