@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function TopNav({
   currentLayer,
@@ -7,6 +7,8 @@ export default function TopNav({
   onToggleAudio,
   onOpenConfig
 }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const getActiveNav = () => {
     if (currentLayer <= 2) return 0;
     if (currentLayer === 3 || currentLayer === 4) return 3;
@@ -16,42 +18,62 @@ export default function TopNav({
   };
 
   const activeTarget = getActiveNav();
+  const handleNavigate = (target, e) => {
+    setIsMenuOpen(false);
+    onNavigate(target, e);
+  };
 
   return (
-    <header className="top-nav-bar" id="top-nav-bar">
-      <nav className="nav-links" id="main-nav-links">
+    <header className={`top-nav-bar ${isMenuOpen ? 'menu-open' : ''}`} id="top-nav-bar">
+      <div className="mobile-nav-brand" aria-hidden="true">
+        <span>✨</span>
+        <span>Birthday</span>
+      </div>
+
+      <button
+        type="button"
+        className="mobile-menu-toggle"
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isMenuOpen}
+        aria-controls="main-nav-links"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+      >
+        <span>{isMenuOpen ? '×' : '☰'}</span>
+      </button>
+
+      <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`} id="main-nav-links">
         <button
           type="button"
           className={`nav-link ${activeTarget === 0 ? 'active' : ''}`}
-          onClick={(e) => onNavigate(0, e)}
+          onClick={(e) => handleNavigate(0, e)}
         >
           Home
         </button>
         <button
           type="button"
           className={`nav-link ${activeTarget === 3 ? 'active' : ''}`}
-          onClick={(e) => onNavigate(3, e)}
+          onClick={(e) => handleNavigate(3, e)}
         >
           Memories
         </button>
         <button
           type="button"
           className={`nav-link ${activeTarget === 5 ? 'active' : ''}`}
-          onClick={(e) => onNavigate(5, e)}
+          onClick={(e) => handleNavigate(5, e)}
         >
           Letter
         </button>
         <button
           type="button"
           className={`nav-link ${activeTarget === 6 ? 'active' : ''}`}
-          onClick={(e) => onNavigate(6, e)}
+          onClick={(e) => handleNavigate(6, e)}
         >
           Wishes
         </button>
         <button
           type="button"
           className={`nav-link ${activeTarget === 7 ? 'active' : ''}`}
-          onClick={(e) => onNavigate(7, e)}
+          onClick={(e) => handleNavigate(7, e)}
         >
           Surprise
         </button>

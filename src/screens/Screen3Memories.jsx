@@ -63,7 +63,7 @@ export default function Screen3Memories({
                 tabIndex={0}
               >
                 <div className="polaroid-photo-wrap">
-                  <img src={item.image} alt={item.caption} className="polaroid-img" />
+                  <img src={item.image} alt={item.caption} className="polaroid-img" loading="lazy" />
                 </div>
                 <p className="polaroid-caption">{item.caption}</p>
               </div>

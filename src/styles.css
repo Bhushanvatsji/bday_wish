@@ -1777,3 +1777,721 @@ body, button, a, .clickable {
     white-space: nowrap;
   }
 }
+
+/* ==========================================================
+   MOBILE-FIRST EXPERIENCE OVERRIDES
+   Primary targets: 360-412px wide phones.
+   ========================================================== */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.mobile-nav-brand,
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  * {
+    max-width: 100%;
+  }
+
+  html,
+  body {
+    font-size: 16px;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    user-select: auto;
+  }
+
+  #particles-canvas {
+    opacity: 0.55;
+  }
+
+  .top-nav-bar {
+    height: 58px;
+    justify-content: space-between;
+    padding: 0 0.85rem;
+    background: linear-gradient(to bottom, rgba(5, 7, 15, 0.92), rgba(5, 7, 15, 0.55));
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+  }
+
+  .mobile-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--gold-light);
+    font-family: var(--font-serif);
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.85);
+    z-index: 320;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    background: rgba(18, 15, 30, 0.78);
+    color: var(--gold-light);
+    font-size: 1.45rem;
+    line-height: 1;
+    z-index: 330;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.55);
+  }
+
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.85rem;
+    width: 100vw;
+    min-height: 100dvh;
+    padding: 5rem 1.25rem 2rem;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(247, 231, 169, 0.16), transparent 36%),
+      linear-gradient(180deg, rgba(7, 9, 19, 0.98), rgba(14, 10, 24, 0.98));
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    z-index: 300;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    width: 100%;
+    max-width: 320px;
+    min-height: 52px;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.36);
+    border-radius: 8px;
+    background: rgba(18, 15, 30, 0.78);
+    font-size: clamp(1rem, 4.4vw, 1.2rem);
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .nav-link.active {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.24);
+  }
+
+  .nav-actions {
+    right: 4.1rem;
+    gap: 0.45rem;
+    z-index: 330;
+  }
+
+  .nav-circle-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 0.98rem;
+  }
+
+  .journey-dots {
+    bottom: 0.65rem;
+    max-width: calc(100vw - 1.5rem);
+    gap: 8px;
+    padding: 6px 10px;
+  }
+
+  .journey-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  #layer-container {
+    width: 100vw;
+    min-height: 100dvh;
+  }
+
+  .layer-screen {
+    width: 100vw;
+    min-height: 100dvh;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4.35rem 0.9rem 3.1rem;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scene-header-gold,
+  .book-title-gold {
+    font-size: clamp(1.55rem, 7vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .scene-subtitle-cream,
+  .book-subtitle {
+    width: 100%;
+    font-size: clamp(1rem, 4.4vw, 1.18rem);
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
+
+  .magic-pill-btn {
+    width: auto;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 0.78rem 1.15rem;
+    border-radius: 999px;
+    font-size: clamp(0.92rem, 4vw, 1.05rem);
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .screen-content-center,
+  .memory-book-container,
+  .appreciation-screen-wrap,
+  .typewriter-screen-wrap,
+  .wishes-screen-wrap,
+  .finale-screen-wrap {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  /* Landing */
+  #layer-0 {
+    align-items: center;
+    text-align: center;
+    padding-top: 4.4rem;
+  }
+
+  .landing-quote-box,
+  .landing-water-candles,
+  .wooden-signpost {
+    display: none;
+  }
+
+  .landing-hero-center {
+    width: 100%;
+    min-height: calc(100dvh - 8rem);
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .landing-hero-center::before {
+    content: '✨';
+    display: block;
+    color: var(--gold-light);
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+    text-shadow: 0 0 22px rgba(247, 231, 169, 0.75);
+    animation: starFloatGlow 2.4s infinite alternate ease-in-out;
+  }
+
+  .landing-hero-title {
+    max-width: 11ch;
+    font-size: clamp(2rem, 9.5vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: 0.4px;
+    margin: 0 auto 0.2rem;
+  }
+
+  .landing-hero-sub {
+    max-width: 28ch;
+    margin: 0 auto 1.1rem;
+    font-size: clamp(1rem, 4.4vw, 1.2rem);
+    line-height: 1.35;
+  }
+
+  .magical-envelope-wrapper {
+    width: min(78vw, 275px);
+    height: auto;
+    aspect-ratio: 1.55;
+    margin: 0.4rem auto 1.35rem;
+  }
+
+  .magical-envelope {
+    width: 100%;
+    height: 100%;
+  }
+
+  .envelope-top-flap {
+    border-left-width: min(39vw, 137px);
+    border-right-width: min(39vw, 137px);
+    border-top-width: min(28vw, 96px);
+  }
+
+  #btn-enter-magic {
+    width: min(82vw, 285px);
+  }
+
+  /* Invitation letter */
+  .vintage-parchment-letter {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+    margin: 0.75rem auto 0;
+    padding: clamp(1.15rem, 5vw, 1.7rem);
+  }
+
+  .parchment-text-content {
+    font-size: clamp(1rem, 4.4vw, 1.14rem);
+    line-height: 1.55;
+  }
+
+  .letter-salutation {
+    font-size: clamp(1.15rem, 5vw, 1.35rem);
+  }
+
+  .letter-open-btn {
+    width: 100%;
+  }
+
+  /* Birthday reveal */
+  .hall-hanging-banner {
+    display: none;
+  }
+
+  .reveal-birthday-title {
+    font-size: clamp(2.05rem, 9vw, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: 1.5px;
+    margin-top: 0.4rem;
+  }
+
+  .reveal-birthday-sub {
+    max-width: 28ch;
+    font-size: clamp(1.05rem, 4.6vw, 1.25rem);
+    line-height: 1.35;
+    margin: 0.75rem auto 1.25rem;
+  }
+
+  .reveal-interactive-zone {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .wooden-make-wish-sign {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .cake-interact-box {
+    width: 100%;
+  }
+
+  .cake-candle-row {
+    gap: 1rem;
+  }
+
+  .cake-flame-hint {
+    max-width: 30ch;
+    margin: 0.55rem auto 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  /* Memories as swipe carousel */
+  .memory-book-container {
+    align-items: center;
+  }
+
+  .memory-book-header {
+    width: 100%;
+    margin-bottom: 0.9rem;
+  }
+
+  .open-spellbook-tome {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    gap: 0;
+  }
+
+  .book-arrow-circle {
+    display: none;
+  }
+
+  .polaroids-grid-row {
+    display: flex;
+    grid-template-columns: none;
+    width: 100%;
+    max-width: none;
+    gap: 0.9rem;
+    padding: 0.35rem 9vw 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .polaroids-grid-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .polaroid-frame {
+    flex: 0 0 84vw;
+    max-width: 330px;
+    min-width: 0;
+    scroll-snap-align: center;
+    transform: none !important;
+    padding: 10px 10px 18px;
+  }
+
+  .polaroid-photo-wrap {
+    aspect-ratio: 4 / 5;
+  }
+
+  .polaroid-caption {
+    font-size: clamp(1rem, 5vw, 1.22rem);
+    overflow-wrap: anywhere;
+  }
+
+  #btn-to-appreciation {
+    margin-top: 0.9rem !important;
+  }
+
+  /* Appreciation cards */
+  .appreciation-grid-3x2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .appreciation-card {
+    min-height: 112px;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .appreciation-card-icon {
+    font-size: 2rem;
+  }
+
+  .appreciation-card-title {
+    font-size: clamp(1rem, 4.6vw, 1.18rem);
+    line-height: 1.25;
+  }
+
+  .appreciation-footer-hint {
+    font-size: 0.98rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* Birthday wish letter */
+  #layer-5 {
+    align-items: flex-start;
+  }
+
+  .typewriter-side-quote {
+    display: none;
+  }
+
+  .typewriter-parchment-scroll {
+    width: 100%;
+    max-width: 91vw;
+    min-height: 0;
+    padding: clamp(1.15rem, 5vw, 1.65rem);
+    margin: 0 auto;
+  }
+
+  .letter-tome-title {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .typewriter-letter-body {
+    min-height: 0;
+    font-size: clamp(1rem, 4.3vw, 1.12rem);
+    line-height: 1.62;
+  }
+
+  .typewriter-letter-body p {
+    margin-bottom: 0.85rem;
+    overflow-wrap: anywhere;
+  }
+
+  .letter-author-signoff {
+    font-size: clamp(1rem, 4.5vw, 1.18rem);
+  }
+
+  .letter-seal-container {
+    min-height: 58px;
+    margin-top: 1.1rem;
+  }
+
+  .sealed-wax-stamp {
+    right: 0.2rem;
+    width: 56px;
+    height: 56px;
+  }
+
+  .resting-quill-decor {
+    right: 0.1rem;
+    bottom: 0.5rem;
+    font-size: 2.2rem;
+    opacity: 0.85;
+  }
+
+  /* Wishes timeline */
+  .wishes-floating-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    width: 100%;
+    margin-top: 1.1rem;
+    padding-left: 1.1rem;
+  }
+
+  .wishes-floating-grid::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.3rem;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(247, 231, 169, 0.8), transparent);
+  }
+
+  .wish-parchment-card {
+    width: 100%;
+    min-height: 86px;
+    padding: 1rem 1rem 1rem 1.25rem;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  .wish-star-crest {
+    left: -1.05rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+  }
+
+  .wish-card-text {
+    margin-top: 0;
+    font-size: clamp(0.98rem, 4.3vw, 1.1rem);
+  }
+
+  /* Secret chamber */
+  #layer-7 {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .secret-chamber-wrap {
+    position: relative;
+    min-height: calc(100dvh - 7.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    pointer-events: auto;
+  }
+
+  #layer-7 .scene-header-gold {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 11ch;
+    margin: 0 auto 1.4rem;
+    font-size: clamp(1.8rem, 8vw, 2.45rem);
+  }
+
+  .chamber-wall-plaque,
+  .chamber-doorway,
+  .chamber-lamp,
+  .chamber-books {
+    display: none;
+  }
+
+  .chamber-keyhole-overlay {
+    display: flex;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto 1.4rem;
+  }
+
+  .chamber-open-btn {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: min(82vw, 300px);
+  }
+
+  .chamber-open-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .chamber-surprise-reveal {
+    padding: 1rem;
+  }
+
+  .chamber-modal-inner {
+    width: 100%;
+    max-width: 340px;
+    padding: 1.8rem 1.2rem;
+  }
+
+  .chamber-big-text {
+    font-size: clamp(1.35rem, 6vw, 1.85rem);
+    line-height: 1.18;
+  }
+
+  .chamber-sub-text {
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+    line-height: 1.25;
+  }
+
+  /* Finale */
+  .banner-finale-right,
+  .flying-owl-moon,
+  .warm-balcony-lantern {
+    display: none;
+  }
+
+  .finale-screen-wrap {
+    min-height: calc(100dvh - 7.5rem);
+    justify-content: center;
+  }
+
+  .finale-screen-wrap::before {
+    content: '✨';
+    color: var(--gold-light);
+    font-size: 2rem;
+    margin-bottom: 0.9rem;
+    text-shadow: 0 0 22px rgba(247, 231, 169, 0.75);
+  }
+
+  .finale-chapter-poem {
+    font-size: clamp(1.18rem, 5.4vw, 1.55rem);
+    line-height: 1.45;
+    margin-bottom: 1.35rem;
+  }
+
+  .finale-birthday-h1 {
+    font-size: clamp(2rem, 9vw, 2.85rem);
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+
+  .gold-flourish-divider {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .finale-author-credit {
+    max-width: 28ch;
+    font-size: clamp(1rem, 4.7vw, 1.2rem);
+    line-height: 1.35;
+    margin-bottom: 1.45rem;
+  }
+
+  .finale-actions-row {
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .finale-actions-row .magic-pill-btn {
+    width: 100%;
+  }
+
+  /* Modals and drawer */
+  .modal-backdrop {
+    padding: 0.9rem;
+  }
+
+  .modal-card-parchment {
+    max-width: 92vw;
+    max-height: 86dvh;
+    overflow-y: auto;
+    padding: 1.4rem 1rem;
+  }
+
+  .modal-photo-box {
+    max-height: 42dvh;
+  }
+
+  .config-sidebar {
+    right: -100vw;
+    width: min(100vw, 360px);
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .screen-content-center,
+  .memory-book-container,
+  .appreciation-screen-wrap,
+  .typewriter-screen-wrap,
+  .wishes-screen-wrap,
+  .finale-screen-wrap {
+    max-width: 430px;
+  }
+
+  .polaroid-frame {
+    flex-basis: 78vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
